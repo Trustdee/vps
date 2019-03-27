@@ -344,7 +344,7 @@ service ssh restart
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=444/DROPBEAR_PORT=442/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109- -p 110"/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109- -p 8443"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 service ssh restart
 service dropbear restart
@@ -532,7 +532,7 @@ echo "Application & Port Information"  | tee -a log-install.txt
 echo "   - OpenVPN     : TCP 1194 "  | tee -a log-install.txt
 echo "   - OpenSSH     : 22, 143"  | tee -a log-install.txt
 echo "   - Stunnel4    : 443"  | tee -a log-install.txt
-echo "   - Dropbear    : 109, 110, 442"  | tee -a log-install.txt
+echo "   - Dropbear    : 109, 8443, 442"  | tee -a log-install.txt
 echo "   - Squid Proxy : 80, 3128, 8000, 8080, 8888 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn      : 7200"  | tee -a log-install.txt
 echo "   - Nginx       : 85"  | tee -a log-install.txt
